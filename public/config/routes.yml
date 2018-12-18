@@ -1,7 +1,13 @@
 routes:
   - route:
-      url: '/'
+      url: '/index'
       action: 'index'
-      name: 'index'
+      controller: 'AppController'
+      vars:
+        - maVariable: 'data'
+  - route:
+      url: '/test'
+      action: 'test'
+      controller: 'AppController'
       vars:
         - maVariable: 'data'

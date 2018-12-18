@@ -5,25 +5,22 @@ namespace Framework;
 class Route
 {
     protected $action;
+    protected $controller;
     protected $url;
-    protected $name;
-    protected $varsNames = [];
     protected $vars = [];
 
     /**
      * Route constructor.
      * @param $action
      * @param $url
-     * @param $name
-     * @param $varsName
+     * @param $controller
      * @param array $vars
      */
-    public function __construct($action, $url, $name, array $varsName, array $vars)
+    public function __construct($action, $url, $controller, array $vars)
     {
         $this->action = $action;
         $this->url = $url;
-        $this->name = $name;
-        $this->varsNames = $varsName;
+        $this->controller = $controller;
         $this->vars = $vars;
     }
 
@@ -48,23 +45,11 @@ class Route
         }
     }
 
-    public function setModule($module)
-    {
-        if (is_string($module)) {
-            $this->module = $module;
-        }
-    }
-
     public function setUrl($url)
     {
         if (is_string($url)) {
             $this->url = $url;
         }
-    }
-
-    public function setVarsNames(array $varsNames)
-    {
-        $this->varsNames = $varsNames;
     }
 
     public function setVars(array $vars)
@@ -82,20 +67,14 @@ class Route
         return $this->vars;
     }
 
-    public function varsNames()
+    public function setController($controller)
     {
-        return $this->varsNames;
+        $this->controller = $controller;
     }
 
-    public function name()
+    public function controller(): string
     {
-        return $this->name;
+        return $this->controller;
     }
-
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
 
 }
