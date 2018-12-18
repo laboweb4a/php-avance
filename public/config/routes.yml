@@ -1,0 +1,7 @@
+routes:
+  - route:
+      url: '/'
+      action: 'index'
+      name: 'index'
+      vars:
+        - maVariable: 'data'
